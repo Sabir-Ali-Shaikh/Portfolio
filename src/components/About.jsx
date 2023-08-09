@@ -21,8 +21,8 @@ const About = () => {
           </div>
           <div>
             <p>
-              I am a recent B.Tech Computer Science graduate (2023) with a
-              strong 9.06 CGPA. Proficient in HTML, JavaScript, and CSS, I've
+              I am a recent B.Tech Computer Science graduate (2023)
+            , Proficient in HTML, JavaScript, and CSS, I've
               also ventured into advanced frameworks like React and Redux.
               Hailing from Kolkata, I value teamwork and possess excellent
               interpersonal skills. Seeking opportunities in web development.

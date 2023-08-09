@@ -36,7 +36,7 @@ const Contact = () => {
               Contact
             </p>
             <p className="text-gray-300 py-4">
-              let connect?
+              let's Connect ?
             </p>
           </div>
           <input

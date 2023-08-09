@@ -59,7 +59,7 @@ function Navbar() {
               return (
                 <Link
                   to={val.to}
-                  className="block mt-4 cursor-pointer lg:inline-block lg:mt-0 text-white-200 mr-4"
+                  className="block mt-4 cursor-pointer  hover:bg-[#00CDAE] p-2  rounded-md hover:text-black lg:inline-block lg:mt-0 text-white-200 mr-4"
                   smooth={true}
                   duration={500}
                 >
