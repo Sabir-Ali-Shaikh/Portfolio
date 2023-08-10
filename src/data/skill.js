@@ -1,4 +1,4 @@
-import bootstrap from "../assets/img/bootstrap.svg";
+import bootstrap from "../assets/img/bootstrap-5-logo-icon.svg";
 import js from "../assets/img/js.svg";
 import html from "../assets/img/html.svg";
 import css from "../assets/img/css.svg";
