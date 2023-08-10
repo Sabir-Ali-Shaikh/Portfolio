@@ -1,9 +1,13 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const Contact = () => {
+  const [personName, setPersonName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+
   const serviceKey = process.env.REACT_APP_SERVICE_KEY;
   const tempKey = process.env.REACT_APP_TEMPLATE_KEY;
   const key = process.env.REACT_APP_KEY;
@@ -11,18 +15,24 @@ const Contact = () => {
   console.log(form.current);
   const sendEmail = (e) => {
     e.preventDefault();
-
-    emailjs
-      .sendForm(`${serviceKey}`, `${tempKey}`, form.current, `${key}`)
-      .then(
-        (result) => {
-          toast.success("Message Sent successfully");
-          form.current.reset();
-        },
-        (error) => {
-          toast.error(error);
-        }
-      );
+    if (email && personName && message) {
+      emailjs
+        .sendForm(`${serviceKey}`, `${tempKey}`, form.current, `${key}`)
+        .then(
+          (result) => {
+            toast.success("Message Sent successfully");
+            form.current.reset();
+            setEmail("");
+            setMessage("");
+            setPersonName("");
+          },
+          (error) => {
+            toast.error(error);
+          }
+        );
+    } else {
+      toast.error("Fill all Details ");
+    }
   };
   return (
     <>
@@ -35,27 +45,37 @@ const Contact = () => {
             <p className="text-4xl font-bold inline border-b-4 border-[#00CDAE] text-gray-300">
               Contact
             </p>
-            <p className="text-gray-300 py-4">
-              let's Connect ?
-            </p>
+            <p className="text-gray-300 py-4">let's Connect ?</p>
           </div>
           <input
             className="bg-[#ccd6f6] p-2"
             type="text"
             placeholder="Name"
             name="from_name"
+            value={personName}
+            onChange={(e) => {
+              setPersonName(e.target.value);
+            }}
           />
           <input
             className="my-4 p-2 bg-[#ccd6f6]"
             type="email"
             placeholder="Email"
             name="user_email"
+            value={email}
+            onChange={(e) => {
+              setEmail(e.target.value);
+            }}
           />
           <textarea
             className="bg-[#ccd6f6] p-2"
             name="message"
             rows="10"
             placeholder="Message"
+            value={message}
+            onChange={(e) => {
+              setMessage(e.target.value);
+            }}
           ></textarea>
           <button
             onClick={sendEmail}
